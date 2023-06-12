@@ -22,7 +22,7 @@
    * Open VPN [Link](https://openvpn.net/vpn-software-packages/ubuntu/)
    * SQL server: [Link](https://learn.microsoft.com/en-us/sql/linux/quickstart-install-connect-ubuntu?view=sql-server-ver16)
    * Grsync  [Link](https://askubuntu.com/questions/514963/is-there-any-gui-application-for-command-rsync)
- - [ ] XRDP [Link}(https://tecadmin.net/how-to-install-xrdp-on-ubuntu-22-04/)
+ - [ ] XRDP [Link](https://tecadmin.net/how-to-install-xrdp-on-ubuntu-22-04/)
     * Install soft
 	* Enable as service
 	* Configure as internsl IP

@@ -21,17 +21,23 @@ Link
 
 ### External connections
 * HDMI
-* 1x USB3.0-C (Power IN + Video)
+* 1x USB3.0-C (**NO** Power IN + Video)
 * 2x USB2.0 (one is shared with USB-C)
 * 2x USB3.0
-* HDMI
+* HDMI 8K
 * 26 PIN expansion
 * Cammera
    * 1x MIPI CSI 4Lane
    * 2x MIPI D-PHY RX 4Lane
-* Ethernet 1G []()
+* Ethernet 1G (YT8531C )
+* WI-FI6+BT 5.0 module (AP6275P), supports BLE
+* RTC ??
 
 
 ### Power Comsuption
+* Power  USB-C connector format: 5V/4A: **In the corner**
+  **Don't confuse with the USB-C for data: In the middle**
+* Power  USB-C
+
 
 ### GPIO

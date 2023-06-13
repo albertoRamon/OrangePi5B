@@ -37,6 +37,7 @@ Link
 ### Power Comsuption
 * Power  USB-C: connector format USB-C 5V/4A: **In the corner**
 * Power  USB-C: doesn't support [Power Delivery (PD) negotiation](https://www.usb.org/usb-charger-pd)
+
 |  **Don't confuse with the USB-C for data: In the middle** |
 | --- | 
 

@@ -36,7 +36,19 @@
 * RTC ??
 
 
-### Power 
+### Leds
+![alt text](/Pictures/04.png)
+* Red: Power indication (no controlable by soft)
+* Green: Kenerl start ==> Blink (controled by soft)
+```bash
+sudo su
+cd /sys/class/leds/status_led
+
+
+```
+
+### Power  Supply
+(Pag 89)
 * Power  USB-C: connector format USB-C 5V/4A: **In the corner**
 * Power  USB-C: doesn't support [Power Delivery (PD) negotiation](https://www.usb.org/usb-charger-pd)
   (To provide more Watts, some USB uses 28V, 36V, and 48V insteand 5V)
@@ -46,10 +58,11 @@
    * Provide Real Time Clocl (RTC)
    * 9 Channels DC-DC, that can be monitorized by I2C
   
-* The Pin 26, always provide 5v 
+* The Pin 26, always provide 5v (directly from USB)
    * No configuration needed & can't be enalbed / disabled
    * No PWM feature
    * Max ????
+   * This PIN can be use to Power the Board too (but no recomended)
 
 |  **Don't confuse with the USB-C for data: In the middle** |
 | --- | 

@@ -1,7 +1,6 @@
 
 # Orange Pi 5B: Hardware
- [Link](http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-5B.html)
-
+ 
 ![alt text](/Pictures/00.png)
 ![alt text](/Pictures/01.png)
 
@@ -40,18 +39,22 @@
 
 
 ### Leds
+(Pag 100)
 ![alt text](/Pictures/04.png)
 * Red: Power indication (no controlable by soft)
 * Green: Kenerl start ==> Blink (controled by soft)
 ```bash
 sudo su
 cd /sys/class/leds/status_led
-
+echo none > trigger			#Stop flash
+echo default-on > trigger	#Always ON
+echo heartbeat > trigger	#Blink
 
 ```
 
 ### Power  Supply
 (Pag 89)
+
 ![alt text](/Pictures/03.png)
 * Power  USB-C: connector format USB-C 5V/4A: **In the corner**
 * Power  USB-C: doesn't support [Power Delivery (PD) negotiation](https://www.usb.org/usb-charger-pd)

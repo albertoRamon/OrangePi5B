@@ -1,4 +1,6 @@
 
+_Default user/password orangepi/orangepi_
+
 # Install Ubuntu 
 If the image is Android is different !!
 
@@ -28,9 +30,6 @@ If the image is Android is different !!
 	* Connect **USB POWER**
 	* Check status USB
 
-# Debug
-(Pag 81)
-* Need a conversor TTL to USB at 1500000 bauds
 
 
 # Graphics Acelerator (Joshua-Riek)

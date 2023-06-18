@@ -2,6 +2,9 @@
 # Orange Pi 5B: Hardware
  [Link](http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-5B.html)
 
+![alt text](/Pictures/00.png)
+![alt text](/Pictures/01.png)
+
 ### CPU:
 * Rockchip RK3588S
 * 64 Bits ARM
@@ -49,6 +52,7 @@ cd /sys/class/leds/status_led
 
 ### Power  Supply
 (Pag 89)
+![alt text](/Pictures/03.png)
 * Power  USB-C: connector format USB-C 5V/4A: **In the corner**
 * Power  USB-C: doesn't support [Power Delivery (PD) negotiation](https://www.usb.org/usb-charger-pd)
   (To provide more Watts, some USB uses 28V, 36V, and 48V insteand 5V)
@@ -70,3 +74,4 @@ cd /sys/class/leds/status_led
 
 
 ### GPIO
+![alt text](/Pictures/02.png)

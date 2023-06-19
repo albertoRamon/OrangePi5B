@@ -23,48 +23,58 @@ sudo orangepi-config
 
 
 # Networking
-(Pag 101)
-### Wired
-```bash
-ip addr show eth0
-sudo ifconfig
-ping www.baidu.com -I eth0
-```
-
-### Wifi CLI
-
 |  **Don't use /etc/network/interfaces** |
 | --- | 
 
-(Pag 103), Bash only
+### Configuration Bash only
+
+* Configure Wifi: (Pag 103)
 ```bash
 nmcli dev wifi			#List hotspots
 nmcli dev wifi connect wifi_name password wifi_passwd
 ```
 
-(Pag 105), Use NCurses
+* Put fix IP: (Pag 118)
+```bash
+nmtui con show  						#See config
+nmcli con mod "Wired connection 1" 	\	#Config Wifi
+   ipv4.addresses "192.168.1.110" 	\
+   ipv4.gateway "192.168.1.1" 		\
+   ipv4.dns "8.8.8.8" 				\
+   ipv4.method "manual"
+
+nmcli con mod "orangepi"				#Config Lan
+   ipv4.addresses "192.168.1.110" 	\
+   ipv4.gateway "192.168.1.1" 		\
+   ipv4.dns "8.8.8.8" 				\
+   ipv4.method "manual"
+
+sudo reboot
+```
+
+
+### Configuration NCurses
+
+* Configure: (Pag 105, 111)
 ```bash
 nmtui
 # Activate a connection
 ```
-
-Test Connection
-```bash
-ip addr show wlan0		#See config
-ping www.orangepi.org -I wlan0
-```
-
-(Pag 118), define static adress Bash only
-```bash
-nmtui  con show  AQUI !!!
-# Activate a connection
-```
-
-(Pag 111), define static adress NCurses
+* Put fix IP:
 ```bash
 nmtui
 # Edit connection > Ethernet | Wifi > IP Config:  > Show
 # After the changes the interfaz need Deactivata & Activate
+```
+
+### Test Connection
+```bash
+sudo ifconfig			#See config
+ip addr show wlan0		#See config
+ip addr show eth0		#See config
+
+ping www.orangepi.org -I wlan0
+ping www.orangepi.org -I eth0
 ```
 
 ### SSH
@@ -73,8 +83,12 @@ nmtui
 
 ```bash
 ssh root@192.168.1.xxx
-reset_ssh.sh
+reset_ssh.sh			#If remote SSH is not working
 ```
+
+
+### ADB
+(Pag. 130)
 
 ### Debug
 (Pag 81)

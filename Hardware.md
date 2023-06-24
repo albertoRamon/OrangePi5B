@@ -133,6 +133,7 @@ sudo vim /boot/orangepiEnv.txt
 ## PWM
 (Pag 172)
 * 6 PWM: PWM0, PWM1, PWM3, PWM13, PWM14, PWM15
+
 |  PWM |  PIN   | Memory  |
 | --- | --- |  --- | 
 | PWM0 | 18 (M1) | fd8b0000 |

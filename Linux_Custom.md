@@ -77,7 +77,7 @@ ping www.orangepi.org -I wlan0
 ping www.orangepi.org -I eth0
 ```
 
-### SSH
+# SSH / SCP
 (Other option is use Debug)
 (pag 127)
 
@@ -86,10 +86,26 @@ ssh root@192.168.1.xxx
 reset_ssh.sh			#If remote SSH is not working
 ```
 
+```bash
+#Upload a file
+scp localFile orangepi@192.168.xx.xx:/home/orangepi/
 
-### ADB
-(Pag. 130)
+#Upload a folder
+scp localFile orangepi@192.168.xx.xx:/home/orangepi/
+```
 
-### Debug
+
+# Debug
 (Pag 81)
 * Need a conversor TTL to USB at 1500000 bauds
+
+
+# ADB
+(Pag. 130)
+
+# Sensors
+(Pag 159)
+```bash
+sensors
+```
+

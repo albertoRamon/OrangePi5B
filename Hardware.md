@@ -76,5 +76,97 @@ echo heartbeat > trigger	#Blink
 
 
 
-### GPIO
+# GPIO
+(Pag 160) 
+* 16X GPIO
+* 6X  PWM
+
 ![alt text](/Pictures/02.png)
+![alt text](/Pictures/02.png)
+
+![alt text](/Pictures/06.png)
+
+
+* GPIOs work 3.3v
+* PIN22 can ve configured as poweroff
+  we need solder a 100K Resistor
+  ![alt text](/Pictures/07.png)
+  
+### WiringOP (Bash)
+(Pag 163)  AQUI !!
+* Is included in the Linux Image. If you want upate
+   * Option 1:[Download DEB File](orangepi-build/external/cache/debs/arm64)  << Falta link al GIT
+   * Option 2: Download from GIT and compile
+   
+```bash
+sudo apt update
+sudo apt install -y git
+it clone https://github.com/orangepi-xunlong/wiringOP.git -b next
+cd wiringOP
+sudo ./build clean
+sudo ./build
+```
+
+* Use 
+```bash
+gpio readall
+```
+### WiringOP (Python)
+(Pag 174)
+Internally use WiringOP Bash
+```bash
+
+```
+
+
+### orangepiEnv
+(pag 164)
+*  Configure the funcaionality of multifunction pin: /boot/orangepiEnv.txt
+```bash
+sudo vim /boot/orangepiEnv.txt
+```
+
+## PWM
+(Pag 172)
+* 6 PWM: PWM0, PWM1, PWM3, PWM13, PWM14, PWM15
+|  PWM |  PIN   | Memory  |
+| --- | --- |  --- | 
+| PWM0 | 18 (M1) | fd8b0000 |
+| PWM1 | 16 (M1) or 26 (M2)| fd8b0010 |
+| PWM3 | 15 (M0) or 23 (M2) | fd8b0030 |
+| PWM13 | 03 (M0)| febf0010 |
+| PWM14 | 11 (M1)| febf0020 |
+| PWM15 | 07 (M0)| febf0030 |
+
+* What means "\_IR\_" in the name of the pin?? No Idea
+* On Linux system PWM PIN26 is disabled by default using:
+```bash
+sudo vim /boot/orangepiEnv.txt
+overlays=pwm0-m1 pwm13-m2 pwm14-m1 pwm15-m2   # RESTART Linux !!!
+```
+* Afer enalble PWM will appear more pwmchip<XX>
+To know <XX> what PWM is related:
+```bash
+sys/class/pwm/ -l  #Check the memory
+```
+
+* Files pwmchip<XX>
+   * export
+   * period
+   * duty_cyple
+   * enable
+* Configure pwmchip<XX> 50 Hz (NO Symetric)
+```bash
+sudo su
+echo 0 > /sys/class/pwm/pwmchip2/export
+echo 20000000 > /sys/class/pwm/pwmchip2/pwm0/period
+echo 1000000 > /sys/class/pwm/pwmchip2/pwm0/duty_cycle
+echo 1 > /sys/class/pwm/pwmchip2/pwm0/enable
+```
+
+## SPI
+(Pag 179)
+
+
+## I2C
+(Pag 181)

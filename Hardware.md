@@ -80,9 +80,13 @@ echo heartbeat > trigger	#Blink
 (Pag 160) 
 * 16X GPIO
 * 6X  PWM
+* 2x CAN 
+* 4x UART
+* 3x I2C
+* 1x SPI
 
 ![alt text](/Pictures/02.png)
-![alt text](/Pictures/02.png)
+![alt text](/Pictures/05.png)
 
 ![alt text](/Pictures/06.png)
 

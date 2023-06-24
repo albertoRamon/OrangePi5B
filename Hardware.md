@@ -24,6 +24,8 @@
 * 32GB/64GB/128GB/256GB
 
 ### External connections
+[See GPIO](https://github.com/albertoRamon/OrangePi5B/blob/main/Hardware.md#gpio)
+
 * HDMI
 * 1x USB3.0-C (**NO** Power IN) Video Display Port (DP) 1.4
 * 2x USB2.0 (one is shared with USB-C)
@@ -78,12 +80,17 @@ echo heartbeat > trigger	#Blink
 
 # GPIO
 (Pag 160) 
-* 16X GPIO
-* 6X  PWM
-* 2x CAN 
-* 4x UART
-* 3x I2C
-* 1x SPI
+
+| CNT    | TYPE     | Link  |
+| ---    |    ----  |   --- |
+|  x16   |   GPIO   |  [Link]()  |
+|  x6    |   PWM    |  [Link](https://github.com/albertoRamon/OrangePi5B/blob/main/Hardware.md#pwm) |
+|  x2    |   CAN    |  [Link](https://github.com/albertoRamon/OrangePi5B/blob/main/Hardware.md#can) |
+|  x4    |   UART   |  [Link](https://github.com/albertoRamon/OrangePi5B/blob/main/Hardware.md#i2c) |
+|  x3    |   I2C    |  [Link](https://github.com/albertoRamon/OrangePi5B/blob/main/Hardware.md#uart) |
+|  x1    |   SPI    |  [Link](https://github.com/albertoRamon/OrangePi5B/blob/main/Hardware.md#spi) |
+
+
 
 ![alt text](/Pictures/02.png)
 ![alt text](/Pictures/05.png)
@@ -136,9 +143,9 @@ sudo vim /boot/orangepiEnv.txt
 
 |  PWM |  PIN   | Memory  |
 | --- | --- |  --- | 
-| PWM0 | 18 (M1) | fd8b0000 |
-| PWM1 | 16 (M1) or 26 (M2)| fd8b0010 |
-| PWM3 | 15 (M0) or 23 (M2) | fd8b0030 |
+| PWM00 | 18 (M1) | fd8b0000 |
+| PWM01 | 16 (M1) or 26 (M2)| fd8b0010 |
+| PWM03 | 15 (M0) or 23 (M2) | fd8b0030 |
 | PWM13 | 03 (M0)| febf0010 |
 | PWM14 | 11 (M1)| febf0020 |
 | PWM15 | 07 (M0)| febf0030 |
@@ -175,3 +182,7 @@ echo 1 > /sys/class/pwm/pwmchip2/pwm0/enable
 
 ## I2C
 (Pag 181)
+
+## CAN
+
+## UART

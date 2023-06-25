@@ -183,6 +183,8 @@ Internally use WiringOP Bash
 sudo vim /boot/orangepiEnv.txt
 overlays=pwm0-m1 pwm13-m2 pwm14-m1 pwm15-m2   # RESTART Linux !!!
 overlays=spi4-m0-cs1-spidev                   # RESTART Linux !!!
+overlays=i2c1-m2 i2c3-m0 i2c5-m3              # RESTART Linux !!!
+overlays=uart0-m2 uart1-m1 uart3-m0 uart4-m0
 ```
 
 ## PWM
@@ -212,7 +214,7 @@ sys/class/pwm/ -l  #Check the memory
    * period
    * duty_cyple
    * enable
-* Configure pwmchip<XX> 50 Hz (NO Symetric)
+* TEST: Configure pwmchip<XX> 50 Hz (NO Symetric)
 ```bash
 sudo su
 echo 0 > /sys/class/pwm/pwmchip2/export
@@ -222,15 +224,64 @@ echo 1 > /sys/class/pwm/pwmchip2/pwm0/enable
 ```
 
 ## SPI
-(Pag 179)
+(Pag 166)
+
 
 1. Enalble PWM with [orangepiEnv](https://github.com/albertoRamon/OrangePi5B/blob/main/Hardware.md#orangepienv) 
-2. Will appear more /dev/spidev<XX>.1
+2. Will appear more /dev/spidev<XX>.1  (Don't use XX.**0**)
+
+* TEST:
+   1. Connect PIN19 and PIN21 (MOSI and MISO of SPI4)
+   2. RUN Script: The resutn Tx and Rx must be the same
+```bash
+   sudo spidev_test -v -D /dev/spidev4.1
+```
 
 
 ## I2C
 (Pag 181)
 
+
+|  I2C  |  NAME          | PIN                |
+| ----- | -------------- |  ----------------- | 
+| I2C1  | I2C1_SDA_M<X>  | 12 (M2) or 16 (M4) |
+| I2C1  | I2C1_SCL_M<X>  | 15 (M2) or 18 (M4) |
+| I2C3  | I2C3_SDA_M0    | 21  |
+| I2C3  | I2C3_SCL_M0    | 19  |
+| I2C5  | I2C5_SDA_M3    | 03  |
+| I2C5  | I2C5_SCL_M3    | 05  |
+
+Use Vcc (PIN 1) and Gnd (PIN 6)
+
+1. Enalble PWM with [orangepiEnv](https://github.com/albertoRamon/OrangePi5B/blob/main/Hardware.md#orangepienv) 
+2. Will appear more /dev/i2c-<XX>
+3. Connect I2C device
+4. Run Script:
+```bash
+   sudo i2cdetect -y 1 				#i2c1 command
+   sudo i2cdetect -y 3 				#i2c3 command
+   sudo i2cdetect -y 5 				#i2c5 command
+```
+
 ## CAN
 
 ## UART
+(Pag 169)
+
+|  UART  |  NAME         | PIN   |
+| ----- | -------------- |  ---- | 
+| UART0  | UART0_TX_M2   | 08 |
+| UART0  | UART0_RX_M2   | 10 |
+| UART1  | UART1_TX_M1   | 05 |
+| UART1  | UART1_RX_M1   | 03 |
+| UART3  | UART3_TX_M0   | 19 |
+| UART3  | UART3_RX_M0   | 21 |
+| UART4  | UART4_TX_M0   | 18 |
+| UART4  | UART4_RX_M0   | 16 |
+
+1. Enalble PWM with [orangepiEnv](https://github.com/albertoRamon/OrangePi5B/blob/main/Hardware.md#orangepienv) 
+2. Will appear more /dev/ttyS<XX>
+3. Run Script:
+```bash
+sudo gpio serial /dev/ttyS0
+```

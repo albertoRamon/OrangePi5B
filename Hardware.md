@@ -51,7 +51,6 @@ cd /sys/class/leds/status_led
 echo none > trigger			#Stop flash
 echo default-on > trigger	#Always ON
 echo heartbeat > trigger	#Blink
-
 ```
 
 ### Power  Supply
@@ -98,16 +97,35 @@ echo heartbeat > trigger	#Blink
 ![alt text](/Pictures/06.png)
 
 
-* GPIOs work 3.3v
+| GPIOs work **3.3v** |
+| ------------------- | 
+
+| On Linux system PWM PIN26 is disabled by default using [orangepiEnv](https://github.com/albertoRamon/OrangePi5B/blob/main/Hardware.md#orangepienv) |
+| ------------------------------------------------------------------- | 
 * PIN22 can ve configured as poweroff
   we need solder a 100K Resistor
   ![alt text](/Pictures/07.png)
+* Blink all GPIO:
+```bash
+sudo blink_all_gpio
+```
+* Set using GPIO 
+```bash
+# Set PIN 7 (wPi 2): OUT Low Level
+gpio mode 2 out     # Configure as "out"
+gpio write 2 0      # Configure Low Level
+gpio write 2 1      # Configure High Leve
+
+```
+
+
   
 ### WiringOP (Bash)
-(Pag 163)  AQUI !!
+(Pag 163)
 * Is included in the Linux Image. If you want upate
-   * Option 1:[Download DEB File](orangepi-build/external/cache/debs/arm64)  << Falta link al GIT
-   * Option 2: Download from GIT and compile
+      * Option 1: [Download DEB File](orangepi-build/external/cache/debs/arm64/wiringpi_x.xx.deb)  << Falta link al GIT
+      * Option 2: Download from OrangePI Download page "WiringOP Source Code compressed Package"
+      * Option 3: Download from GIT and compile
    
 ```bash
 sudo apt update
@@ -135,6 +153,8 @@ Internally use WiringOP Bash
 *  Configure the funcaionality of multifunction pin: /boot/orangepiEnv.txt
 ```bash
 sudo vim /boot/orangepiEnv.txt
+overlays=pwm0-m1 pwm13-m2 pwm14-m1 pwm15-m2   # RESTART Linux !!!
+overlays=spi4-m0-cs1-spidev                   # RESTART Linux !!!
 ```
 
 ## PWM
@@ -151,12 +171,9 @@ sudo vim /boot/orangepiEnv.txt
 | PWM15 | 07 (M0)| febf0030 |
 
 * What means "\_IR\_" in the name of the pin?? No Idea
-* On Linux system PWM PIN26 is disabled by default using:
-```bash
-sudo vim /boot/orangepiEnv.txt
-overlays=pwm0-m1 pwm13-m2 pwm14-m1 pwm15-m2   # RESTART Linux !!!
-```
-* Afer enalble PWM will appear more pwmchip<XX>
+
+1. Enalble PWM with [orangepiEnv](https://github.com/albertoRamon/OrangePi5B/blob/main/Hardware.md#orangepienv) 
+2. Will appear more /dev/pwmchip<XX>
 To know <XX> what PWM is related:
 ```bash
 sys/class/pwm/ -l  #Check the memory
@@ -178,6 +195,9 @@ echo 1 > /sys/class/pwm/pwmchip2/pwm0/enable
 
 ## SPI
 (Pag 179)
+AQUI !!, Pag, 166
+1. Enalble PWM with [orangepiEnv](https://github.com/albertoRamon/OrangePi5B/blob/main/Hardware.md#orangepienv) 
+2. Will appear more /dev/spidev<XX>.1
 
 
 ## I2C

@@ -153,6 +153,7 @@ Wiring Orange Pi (OP) is a modification of WiringPI ( for Raspberry PI)
 | -- | 
 
 * Is included in the Linux Image. If you want upate
+
    * Option 1: [Download DEB FileL orangepi-build/external/cache/debs/arm64/wiringpi_x.xx.deb](https://github.com/orangepi-xunlong/orangepi-build/tree/next/external/cache/debs/arm64)  from [OrangePi-Build](https://github.com/orangepi-xunlong/orangepi-build)
    * Option 2: Download from OrangePI Download page "[WiringOP Source Code compressed Package](https://drive.google.com/drive/folders/1gvCbQTMHh80S8H2MIha20nsXOoHVY3X3)"
    * Option 3: Download from [GIT](https://github.com/orangepi-xunlong/wiringOP/tree/next) and compile

@@ -109,6 +109,8 @@ echo heartbeat > trigger	#Blink
 ```bash
 sudo blink_all_gpio
 ```
+
+### WiringOP: Use (Bash Version)
 * Set using GPIO 
 ```bash
 # Set PIN 7 (wPi 2): OUT Low Level
@@ -118,16 +120,42 @@ gpio write 2 1      # Configure High Leve
 
 ```
 
+* From Original PI version
+   * [wiringpi.com](http://wiringpi.com/)
+   * Manual [GPIO utility](https://projects.drogon.net/raspberry-pi/wiringpi/the-gpio-utility/)
 
-  
-### WiringOP (Bash)
+```bash
+gpio -v     #Print version
+gpio more   <WiringPi Number> {in|outpwm|up|down|tri}
+gpio write  <WiringPi Number> {0|1}
+gpio pwm    <WiringPi Number> <value>  #0-1023
+gpio read   <WiringPi Number>
+gpio readall
+```
+
+Module Load Commands
+```bash
+gpio load spi [buffer size in KB]       #Default 4Kb
+gpio load i2c [baud rate in Kb/sec]     #Default 100Kb/sec
+```
+
+
+??? Test IT:
+```bash
+gpio exports
+```
+
+### WiringOP: Install Bash Version
 (Pag 163)
+Wiring Orange Pi (OP) is a modification of WiringPI ( for Raspberry PI)
+
 | Use **NEXT** Branch for Orange PI 5B |
 | -- | 
+
 * Is included in the Linux Image. If you want upate
-      * Option 1: [Download DEB FileL orangepi-build/external/cache/debs/arm64/wiringpi_x.xx.deb](https://github.com/orangepi-xunlong/orangepi-build/tree/next/external/cache/debs/arm64)  from [OrangePi-Build](https://github.com/orangepi-xunlong/orangepi-build)
-      * Option 2: Download from OrangePI Download page "[WiringOP Source Code compressed Package](https://drive.google.com/drive/folders/1gvCbQTMHh80S8H2MIha20nsXOoHVY3X3)"
-      * Option 3: Download from GIT and compile
+   * Option 1: [Download DEB FileL orangepi-build/external/cache/debs/arm64/wiringpi_x.xx.deb](https://github.com/orangepi-xunlong/orangepi-build/tree/next/external/cache/debs/arm64)  from [OrangePi-Build](https://github.com/orangepi-xunlong/orangepi-build)
+   * Option 2: Download from OrangePI Download page "[WiringOP Source Code compressed Package](https://drive.google.com/drive/folders/1gvCbQTMHh80S8H2MIha20nsXOoHVY3X3)"
+   * Option 3: Download from [GIT](https://github.com/orangepi-xunlong/wiringOP/tree/next) and compile
    
 ```bash
 sudo apt update
@@ -138,16 +166,13 @@ sudo ./build clean
 sudo ./build
 ```
 
-* Use 
-```bash
-gpio readall
-```
-### WiringOP (Python)
+### WiringOP: Python Version
 (Pag 174)
 Internally use WiringOP Bash
 ```bash
 
 ```
+
 
 
 ### orangepiEnv

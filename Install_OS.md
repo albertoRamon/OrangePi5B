@@ -66,15 +66,30 @@ Is a custom Ubuntu (v22.04.2 LTS) for RK3588 CPU
 ## Test what acelerations are enabled (Chromium)
 (Pag 273)
 
+1. Open Chromium
+2. Go to: _chrome://gpu_
+![alt text](/Pictures/10.png)
+
 ## Enable acelerations
 
 ## Benchmarks [Graphics / GPU] 
 (Pag 271)
+
+* Option 1
  ```bash
   glmark2              #Check if GL_Vendor Appear
+```
+* Option 2
+ ```bash
   gpu_load.sh
 ```
 
+* Option 3: (Pag 274)
+ ```bash
+  # 1- Open a video, like /usr/local/test.mp4
+  # 2- Run Script
+  vpu_debug.sh
+```
 
 ## Install Docker
 (Pag 186)
@@ -145,13 +160,13 @@ javac --version
 ```
 
 ##  Install kernel Headers
-(Pag 245)  AQUI !!!
+(Pag 245)
 
 * Method 1: Download from [Official Tools](https://drive.google.com/drive/folders/1iBvN29Ls9iKrn91sJGUHmQzz89SLMASh)
 ```bash
 sudo dpkg -i linux-headers-legacy-rockchip-rk3588_1.x.x_arm64.deb
 ```
-* Method 2: Compiling the Kernel from Source Code
+* Method 2: Compiling the Kernel from Source Code (Pag 305)
 
 
 ## Activate Wayland
@@ -159,3 +174,7 @@ sudo dpkg -i linux-headers-legacy-rockchip-rk3588_1.x.x_arm64.deb
 
 Ubuntu Settings> About > Windowing System
 ![alt text](/Pictures/10.png)
+
+
+## Compile our "Orange-Build"
+(Pag 297)

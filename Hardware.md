@@ -14,6 +14,10 @@
 
 ### GPU:
 * [Mali-G610 MP4](https://www.arm.com/products/silicon-ip-multimedia/gpu/mali-g610)
+See the Serial Number
+```bash
+cat_serial.sh
+```
 
 ### RAM
 * 4GB/8GB/16GB/32GB
@@ -170,11 +174,31 @@ sudo ./build
 ### WiringOP: Python Version
 (Pag 174)
 Internally use WiringOP Bash
-```bash
 
+* Install
+```bash
+sudo apt-get -y install git swig python3-dev python3-setuptools
+git clone --recursive https://github.com/orangepi-xunlong/wiringOP-Python -b next
+cd wiringOP-Python
+python3 generate-bindings.py > bindings.i
+sudo python3 setup.py install
+python3 -c "import wiringpi; help(wiringpi)"	#Test that is installed
 ```
 
-
+*  Example of Use (Pag 178)
+```python
+import wiringpi;
+from wiringpi import GPIO; 
+wiringpi.wiringPiSetup();
+wiringpi.pinMode(2, GPIO.OUTPUT);
+wiringpi.digitalWrite(2, GPIO.LOW
+wiringpi.digitalWrite(2, GPIO.HIGH)
+```
+* Example Script
+```bash
+cd ~/wiringOP-Python/examples
+python3 blink.py
+```
 
 ### orangepiEnv
 (pag 164)
@@ -184,7 +208,7 @@ sudo vim /boot/orangepiEnv.txt
 overlays=pwm0-m1 pwm13-m2 pwm14-m1 pwm15-m2   # RESTART Linux !!!
 overlays=spi4-m0-cs1-spidev                   # RESTART Linux !!!
 overlays=i2c1-m2 i2c3-m0 i2c5-m3              # RESTART Linux !!!
-overlays=uart0-m2 uart1-m1 uart3-m0 uart4-m0
+overlays=uart0-m2 uart1-m1 uart3-m0 uart4-m0  # RESTART Linux !!!
 ```
 
 ## PWM
@@ -206,7 +230,7 @@ overlays=uart0-m2 uart1-m1 uart3-m0 uart4-m0
 2. Will appear more /dev/pwmchip<XX>
 To know <XX> what PWM is related:
 ```bash
-sys/class/pwm/ -l  #Check the memory
+sys/class/pwm/ -l  #Check the link
 ```
 
 * Files pwmchip<XX>
@@ -234,7 +258,7 @@ echo 1 > /sys/class/pwm/pwmchip2/pwm0/enable
    1. Connect PIN19 and PIN21 (MOSI and MISO of SPI4)
    2. RUN Script: The resutn Tx and Rx must be the same
 ```bash
-   sudo spidev_test -v -D /dev/spidev4.1
+   sudo spidev_test -v -D /dev/spidev4.1 --channel 4 --port 1
 ```
 
 

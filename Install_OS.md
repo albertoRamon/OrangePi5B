@@ -1,6 +1,14 @@
 
 _Default user/password orangepi/orangepi_
 
+### Install Balenaetcher on Orange PI (ARM64)
+[Releases](https://github.com/Itai-Nelken/BalenaEtcher-arm/releases/)
+ ```bash
+https://github.com/Itai-Nelken/BalenaEtcher-arm/releases/download/v1.7.9/balena-etcher-electron_1.7.9+5945ab1f_arm64.deb
+sudo apt install -y --fix-broken ./balena-etcher-electron_1.7.9+5945ab1f_arm64.deb
+```
+
+
 # Install Ubuntu 
 If the image is Android is different !!
 
@@ -42,19 +50,112 @@ Is a custom Ubuntu (v22.04.2 LTS) for RK3588 CPU
  1. Use Balena to copy the IMG from [releases](https://github.com/Joshua-Riek/ubuntu-rockchip/releases)
  2. Boot using the Memory Card
  3. Check if eMMC is detected
+ 
+```bash
+  lsblk /dev/mmcblk0
+  NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+  mmcblk0     179:0    0  58.2G  0 disk 
  ```
-lsblk /dev/mmcblk0
-NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
-mmcblk0     179:0    0  58.2G  0 disk 
- ```
+ 
  4. Copy Ubuntu to eMMC
- ```
-xz -dc ubuntu-22.04.2-preinstalled-desktop-arm64-orangepi5b.img.xz | sudo dd of=/dev/mmcblk0 bs=4k
-sync
+ ```bash
+  xz -dc ubuntu-22.04.2-preinstalled-desktop-arm64-orangepi5b.img.xz | sudo dd of=/dev/mmcblk0 bs=4k
+  sync
 ```
 
-## Test what acelerations are enabled
+## Test what acelerations are enabled (Chromium)
+(Pag 273)
 
 ## Enable acelerations
 
-## Benchmarks [Graphics]
+## Benchmarks [Graphics / GPU] 
+(Pag 271)
+ ```bash
+  glmark2              #Check if GL_Vendor Appear
+  gpu_load.sh
+```
+
+
+## Install Docker
+(Pag 186)
+Is already installed but need be enabled
+
+```bash
+enable_docker.sh
+docker run hello-world
+```
+
+## Install BT
+(Pag 189)
+* [www.BT.ch](https://www.bt.cn/new/index.html)
+* Looks Very oriented to Chineese Market
+```bash
+sudo install_bt_panel.sh
+```
+
+## NoMachine
+(Pag 212)
+* [www.nomachine.com](https://www.nomachine.com/) [/getting-started](https://www.nomachine.com/getting-started-with-nomachine)
+* Is Free but no GPL (Have an Enterprise version)
+
+
+## VNC (Server Ubuntu v22.04) [RDP Server]
+(Pag 217)
+**Check the script, what version of VNC is installing**
+```bash
+sudo set_vnc.sh
+# 1. Configure Password
+# 2. The SRV is running you must be able to connect (IE. MobaxTerm, Windows RDP)
+#    Default Port: 5901
+```
+
+* startup script: _/root/.vnc/xstartup_
+* Log file: _/root/.vnc/orangepi5b:1.log_
+
+
+## Other Languages (Ubunt v22.04, Jammy)
+
+### GCC
+(Pag 226)
+Installed by default
+```bash
+gcc --version
+```
+
+### Python3
+(Pag 223)
+Installed Python3 by default
+```bash
+python3 --version
+```
+
+### Java
+(Pag 223)
+**????Check that is correct:**
+
+Installed Java RE by default: (OpenJDK Runtime Environment v18)
+```bash
+java --version
+```
+
+Java JDK need be installed
+```bash
+sudo apt install -y openjdk-18-jdk
+javac --version
+```
+
+##  Install kernel Headers
+(Pag 245)  AQUI !!!
+
+* Method 1: Download from [Official Tools](https://drive.google.com/drive/folders/1iBvN29Ls9iKrn91sJGUHmQzz89SLMASh)
+```bash
+sudo dpkg -i linux-headers-legacy-rockchip-rk3588_1.x.x_arm64.deb
+```
+* Method 2: Compiling the Kernel from Source Code
+
+
+## Activate Wayland
+(Pag 267)
+
+Ubuntu Settings> About > Windowing System
+![alt text](/Pictures/10.png)

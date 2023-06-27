@@ -50,6 +50,7 @@ If the image is Android is different !!
   Josua added a PPA (Own repository [DEB Repository](https://launchpad.net/~jjriek/+archive/ubuntu/orangepi5)) 
      * Thus, _sudo apt update_ will solve some problems
 	 * Include some custom tools
+
 ![alt text](/Pictures/14.png)
 
 1. Download IMG from [releases](https://github.com/Joshua-Riek/ubuntu-rockchip/releases) last version.
@@ -57,26 +58,38 @@ If the image is Android is different !!
 3. Install DriverAssistant (is inside)
 4. /RKDevTool_Release/
    * Configure English: Config (Configuration Settings): "Selected=2"
+
 ![alt text](/Pictures/12.png)
    
    
    * Open RKDevTool: You will see "No device"
-   ![alt text](/Pictures/13.png)
+
+![alt text](/Pictures/13.png)
+
 5. Switch on Power **Presing** "MaskROM Key"
-    ![alt text](/Pictures/15.png)
-6. "Boot" > "Load Config": 
-    ![alt text](/Pictures/16.png)
+
+![alt text](/Pictures/15.png)
+
+
+6. "Boot" > "Load Config":
+ 
+![alt text](/Pictures/16.png)
 	
 	MiniLoader > RK3588_linux_emmc
-	![alt text](/Pictures/17.png)
+
+![alt text](/Pictures/17.png)
 
 	Replace Loader:
-	![alt text](/Pictures/18.png)
+	
+![alt text](/Pictures/18.png)
+
 	For this:
-	![alt text](/Pictures/19.png)
+	
+![alt text](/Pictures/19.png)
 	
 	Check: "Write by adress" and "RUN"
-	![alt text](/Pictures/20.png)
+
+![alt text](/Pictures/20.png)
 
 
 ## Install TF & eMMC
@@ -102,6 +115,7 @@ If the image is Android is different !!
 
 1. Open Chromium
 2. Go to: _chrome://gpu_
+
 ![alt text](/Pictures/10.png)
 
 ## Enable acelerations
@@ -207,6 +221,7 @@ sudo dpkg -i linux-headers-legacy-rockchip-rk3588_1.x.x_arm64.deb
 (Pag 267)
 
 Ubuntu Settings> About > Windowing System
+
 ![alt text](/Pictures/10.png)
 
 

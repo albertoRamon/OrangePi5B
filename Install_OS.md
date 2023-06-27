@@ -50,7 +50,6 @@ If the image is Android is different !!
   Josua added a PPA (Own repository [DEB Repository](https://launchpad.net/~jjriek/+archive/ubuntu/orangepi5)) 
      * Thus, _sudo apt update_ will solve some problems
 	 * Include some custom tools
-	 
 ![alt text](/Pictures/14.png)
 
 1. Download IMG from [releases](https://github.com/Joshua-Riek/ubuntu-rockchip/releases) last version.
@@ -58,7 +57,6 @@ If the image is Android is different !!
 3. Install DriverAssistant (is inside)
 4. /RKDevTool_Release/
    * Configure English: Config (Configuration Settings): "Selected=2"
-   
 ![alt text](/Pictures/12.png)
    
    

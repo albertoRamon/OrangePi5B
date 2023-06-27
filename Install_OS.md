@@ -2,7 +2,7 @@
 _Default user/password orangepi/orangepi_
 
 ### Install Balenaetcher on Orange PI (ARM64)
-[Releases](https://github.com/Itai-Nelken/BalenaEtcher-arm/releases/)
+[GitHub Releases](https://github.com/Itai-Nelken/BalenaEtcher-arm/releases/)
  ```bash
 https://github.com/Itai-Nelken/BalenaEtcher-arm/releases/download/v1.7.9/balena-etcher-electron_1.7.9+5945ab1f_arm64.deb
 sudo apt install -y --fix-broken ./balena-etcher-electron_1.7.9+5945ab1f_arm64.deb
@@ -28,6 +28,7 @@ If the image is Android is different !!
 
 ## Using Windows RKDevTool on eMMC
 (PAG 40)
+
 * [Download](https://drive.google.com/drive/folders/1bSaTxyTlwsEjBhanBly4-lqzzVVtOFSj) MiniLoader, RKDevTool_Release and DriverAssistant
 * [Download](https://drive.google.com/drive/folders/1xhP1KeW_hL5Ka4nDuwBa8N40U8BN0AC9) Image
 * DriverAssitant > DriverInstall.exe: Install Rockchip driver
@@ -40,10 +41,41 @@ If the image is Android is different !!
 
 
 
-# Graphics Acelerator (Joshua-Riek)
-[GitHub](https://github.com/Joshua-Riek/ubuntu-rockchip) [Wiki](https://github.com/Joshua-Riek/ubuntu-rockchip/wiki) [releases](https://github.com/Joshua-Riek/ubuntu-rockchip/releases)
+# Graphics Acelerator (Joshua-Riek) (RKDevTool)
+* [GitHub](https://github.com/Joshua-Riek/ubuntu-rockchip) 
+   * [Wiki Project](https://github.com/Joshua-Riek/ubuntu-rockchip/wiki)
+   * [Wiki Rock-5B](https://github.com/Joshua-Riek/ubuntu-rockchip/wiki/Rock-5B)
+* Video: [NEW Orange Pi 5B. Installing Custom Ubuntu to eMMC drive](https://www.youtube.com/watch?v=5q_tytwmseg&t=756s)
+* Is a custom Ubuntu (v22.04.2 LTS) for RK3588 CPU
+  Josua added a PPA (Own repository [DEB Repository](https://launchpad.net/~jjriek/+archive/ubuntu/orangepi5)) 
+     * Thus, _sudo apt update_ will solve some problems
+	 * Include some custom tools
+	  ![alt text](/Pictures/14.png)
 
-Is a custom Ubuntu (v22.04.2 LTS) for RK3588 CPU
+1. Download IMG from [releases](https://github.com/Joshua-Riek/ubuntu-rockchip/releases) last version.
+2. Download RKDevTool_Release[Download](https://drive.google.com/drive/folders/1bSaTxyTlwsEjBhanBly4-lqzzVVtOFSj).
+3. Install DriverAssistant (is inside)
+4. /RKDevTool_Release/
+   * Configure English: Config (Configuration Settings): "Selected=2"
+   ![alt text](/Pictures/12.png)
+   * Open RKDevTool: You will see "No device"
+   ![alt text](/Pictures/13.png)
+5. Switch on Power **Presing** "MaskROM Key"
+    ![alt text](/Pictures/15.png)
+6. "Boot" > "Load Config": 
+    ![alt text](/Pictures/16.png)
+	
+	MiniLoader > RK3588_linux_emmc
+	![alt text](/Pictures/17.png)
+
+	Replace Loader:
+	![alt text](/Pictures/18.png)
+	For this:
+	![alt text](/Pictures/19.png)
+	
+	Check: "Write by adress" and "RUN"
+	![alt text](/Pictures/20.png)
+
 
 ## Install TF & eMMC
 [Wiki for Orange PI 5B](https://github.com/Joshua-Riek/ubuntu-rockchip/wiki/Orange-Pi-5B)

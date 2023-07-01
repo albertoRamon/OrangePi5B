@@ -50,6 +50,8 @@ If the image is Android is different !!
   Josua added a PPA (Own repository [DEB Repository](https://launchpad.net/~jjriek/+archive/ubuntu/orangepi5)) 
      * Thus, _sudo apt update_ will solve some problems
 	 * Include some custom tools
+	 
+	 ![alt text](/Pictures/21.png)
 
 ![alt text](/Pictures/14.png)
 
@@ -116,6 +118,10 @@ If the image is Android is different !!
 1. Open Chromium
 2. Go to: _chrome://gpu_
 
+|  Josua 1.19 (Jun 2023)         | Ubuntu 22.04 (Jun 2023)         |
+| -----------------------------  |  -----------------------------  |
+| ![alt text](/Pictures/22.png)  |    |
+
 ![alt text](/Pictures/10.png)
 
 ## Enable acelerations
@@ -127,6 +133,11 @@ If the image is Android is different !!
  ```bash
   glmark2              #Check if GL_Vendor Appear
 ```
+
+|  Josua 1.19 (Jun 2023)         | Ubuntu 22.04 (Jun 2023)         |
+| -----------------------------  |  -----------------------------  |
+| ![alt text](/Pictures/23.png)  |    |
+
 * Option 2
  ```bash
   gpu_load.sh
@@ -176,36 +187,7 @@ sudo set_vnc.sh
 * Log file: _/root/.vnc/orangepi5b:1.log_
 
 
-## Other Languages (Ubunt v22.04, Jammy)
 
-### GCC
-(Pag 226)
-Installed by default
-```bash
-gcc --version
-```
-
-### Python3
-(Pag 223)
-Installed Python3 by default
-```bash
-python3 --version
-```
-
-### Java
-(Pag 223)
-**????Check that is correct:**
-
-Installed Java RE by default: (OpenJDK Runtime Environment v18)
-```bash
-java --version
-```
-
-Java JDK need be installed
-```bash
-sudo apt install -y openjdk-18-jdk
-javac --version
-```
 
 ##  Install kernel Headers
 (Pag 245)

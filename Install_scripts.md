@@ -4,14 +4,16 @@
 sudo apt-get update
 sudo apt-get upgrade  -y
 
-sudo apt-get install git  -y
-sudo apt-get install notepadqq -y
-sudo apt-get install filezilla -y
-sudo apt-get install glmark2 -y
+sudo apt-get install git         -y
+sudo apt-get install wget        -y
+sudo apt-get install iproute2    -y
+sudo apt-get install notepadqq   -y
+sudo apt-get install filezilla   -y
+sudo apt-get install glmark2     -y
 sudo apt-get install default-jre -y
 sudo apt-get install default-jdk -y
-sudo apt-get install psensor -y
-sudo apt-get install lm-sensors -y
+sudo apt-get install psensor     -y
+sudo apt-get install lm-sensors  -y
 sudo apt-get install chrome-gnome-shell -y
 
 # Libreoffice
@@ -24,6 +26,7 @@ sudo add-apt-repository ppa:unit193/encryption  -y
 sudo apt-get update
 sudo apt install veracrypt -y
 ```
+
 
 ### Install firefox (deb Package)
 ```bash
@@ -45,6 +48,7 @@ echo 'Unattended-Upgrade::Allowed-Origins:: "LP-PPA-mozillateam:${distro_codenam
 
 sudo apt install firefox -y --allow-downgrades
 ```
+
 
 ### Azure CLI [Link](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt#option-2-step-by-step-installation-instructions)
 ```bash
@@ -72,6 +76,12 @@ Unfortunally there is no version ARM64 for Linux
 ### Azure Storage Explorer
 [Download](https://github.com/microsoft/AzureStorageExplorer/releases)
 Unfortunally there is no version ARM64 for Linux
+
+
+### Postman
+```bash
+wget https://dl.pstmn.io/download/latest/linux_arm64
+```
 
 
 ### gNome

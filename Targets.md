@@ -14,6 +14,7 @@
   - [X] Git
   - [ ] Azure: Bicep, Azure CLI, data studio, Az storage explorer
   - [ ] Visual Studio Code
+  - [ ] M$ Teams
   - [ ] Postman
   - [ ] remmina [Link](https://remmina.org/how-to-install-remmina/#ubuntu)
   - [ ] Veracript [Link](https://itslinuxfoss.com/how-to-install-and-use-veracrypt-on-ubuntu-22-04/?utm_content=cmp-true)

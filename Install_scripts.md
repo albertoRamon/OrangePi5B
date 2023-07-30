@@ -15,6 +15,8 @@ sudo apt-get install default-jdk -y
 sudo apt-get install psensor     -y
 sudo apt-get install lm-sensors  -y
 sudo apt-get install chrome-gnome-shell -y
+sudo apt-get install freecad     -y
+sudo apt-get install gh          -y
 
 # Libreoffice
 sudo add-apt-repository ppa:libreoffice/ppa  -y
